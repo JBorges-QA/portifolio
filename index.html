@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Jr | José Borges</title>
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --secondary: #1e293b;
+            --accent: #06b6d4;
+            --bg: #f8fafc;
+            --text: #475569;
+            --light: #e2e8f0;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0 3rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .highlight-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .profile-placeholder {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.3rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-badge {
+            background: var(--bg);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--light);
+            transition: all 0.3s;
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Projects */
+        .projects {
+            padding: 4rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid var(--light);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Learning Path */
+        .learning {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .roadmap-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            border: 2px dashed var(--light);
+            transition: all 0.3s;
+        }
+
+        .roadmap-card:hover {
+            border-color: var(--primary);
+            background: var(--bg);
+        }
+
+        .roadmap-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-status {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-done {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-next {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 0;
+            text-align: center;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                &lt;/<span>DevOps Jr</span>&gt;
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#learning">Aprendizado</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="subtitle">👋 Olá, eu sou</div>
+                    <h1>José Borges</h1>
+                    <h2><span>DevOps Júnior</span></h2>
+                    <div class="highlight-box">
+                        <p>🎓 <strong>Formação:</strong> Segurança da Informação</p>
+                        <p>💼 <strong>Buscando:</strong> Primeira oportunidade em DevOps</p>
+                        <p>📚 <strong>Estudando:</strong> AWS, Docker e Terraform</p>
+                        <p>🏆 <strong>Diferencial:</strong> Segurança aplicada a Devops</p>
+                    </div>
+                    <div>
+                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-outline">Contato</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-placeholder">🚀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Minha Jornada</h2>
+            <div class="about-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 - Presente</div>
+                        <div class="timeline-title">Estudos em DevOps</div>
+                        <p>Focado em AWS, Docker e CI/CD. Realizando laboratórios práticos e projetos pessoais.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <div class="timeline-title">Formação em Segurança da Informação</div>
+                        <p>Fundamentos de segurança da informação e Cyber Sec, segurança de servidores e conceitos desenvolvimento seguro.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <div class="timeline-title">Curso Técnico em Desenvolvimento de Sistemas</div>
+                        <p>Fundamentos de programação, banco de dados e redes.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem; color: var(--secondary);">Habilidades Técnicas</h3>
+                    <div class="skills-list">
+                        <span class="skill-badge">🐧 Linux</span>
+                        <span class="skill-badge">🐳 Docker</span>
+                        <span class="skill-badge">☁️ AWS Básico</span>
+                        <span class="skill-badge">📦 Git/GitHub</span>
+                        <span class="skill-badge">🐍 Python</span>
+                        <span class="skill-badge">📜 Bash Script</span>
+                        <span class="skill-badge">🔧 Terraform (estudando)</span>
+                        <span class="skill-badge">🔄 CI/CD (GitHub Actions)</span>
+                        <span class="skill-badge">📊 MySQL Básico</span>
+                        <span class="skill-badge">🌐 Redes TCP/IP</span>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1rem; color: var(--secondary);">Soft Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-badge">🤝 Trabalho em equipe</span>
+                        <span class="skill-badge">📚 Aprendizado rápido</span>
+                        <span class="skill-badge">🔍 Resolução de problemas</span>
+                        <span class="skill-badge">📢 Comunicação</span>
+                        <span class="skill-badge">💡 Proatividade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos Práticos</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <h3>Infraestrutura AWS para App Web</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Configurei ambiente EC2 e RDS para aplicação web.</p>
+                        <div class="project-tags">
+                            <span class="tag">AWS EC2</span>
+                            <span class="tag">RDS</span>
+                        </div>
+                        <a href="#" class="project-link">Ver no GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🐳</div>
+                        <h3>Dockerizando Aplicações</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Criei containers para 3 aplicações diferentes (Node.js, Python, PHP) com docker-compose e redes internas.</p>
+                        <div class="project-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Docker Compose</span>
+                            <span class="tag">Nginx</span>
+                        </div>
+                        <a href="#" class="project-link">Ver no GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🔄</div>
+                        <h3>Pipeline CI/CD Simples</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Pipeline com GitHub Actions para build, teste e deploy automático em uma instância AWS EC2 e em comunicação com um RDS.</p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">AWS EC2</span>
+                            <span class="tag">AWS RDS</span>
+                            <span class="tag">Shell Script</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Golang</span>
+                        </div>
+                        <a href="https://github.com/JBorges-QA/CI-com-GitHubActions" class="project-link">Ver no GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section id="learning" class="learning">
+        <div class="container">
+            <h2 class="section-title">Roadmap de Estudos</h2>
+            <div class="roadmap">
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">✅</div>
+                    <h4>Linux & Shell</h4>
+                    <span class="roadmap-status status-done">Concluído</span>
+                </div>
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">✅</div>
+                    <h4>Git & GitHub</h4>
+                    <span class="roadmap-status status-done">Concluído</span>
+                </div>
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">🔄</div>
+                    <h4>Docker</h4>
+                    <span class="roadmap-status status-progress">Em andamento</span>
+                </div>
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">🔄</div>
+                    <h4>AWS Cloud</h4>
+                    <span class="roadmap-status status-progress">Em andamento</span>
+                </div>
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">📅</div>
+                    <h4>Kubernetes</h4>
+                    <span class="roadmap-status status-next">Próximo</span>
+                </div>
+                <div class="roadmap-card">
+                    <div class="roadmap-icon">📅</div>
+                    <h4>Terraform</h4>
+                    <span class="roadmap-status status-next">Próximo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Vamos Conversar?</h2>
+            <p>Estou em busca da primeira oportunidade como DevOps Júnior</p>
+            <div class="social-links">
+                <a href="https://github.com/JBorges-QA" class="social-link">
+                    <span class="social-icon">📂</span>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/josé-carlos-7b89641a2/" class="social-link">
+                    <span class="social-icon">💼</span>
+                    LinkedIn
+                </a>
+                <a href="https://wa.me/15988273977" class="social-link" target="_blank">
+                    <span class="social-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="#25D366">
+                            <circle cx="12" cy="12" r="12" fill="#25D366"/>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" fill="white"/>
+                        </svg>
+                </span>
+                WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 José Borges - DevOps Júnior | Construindo o futuro com automação 🚀</p>
+        </div>
+    </footer>
+</body>
+</html>
