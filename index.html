@@ -14,13 +14,17 @@
             <div class="logo">
                 &lt;/<span>DevOps Jr</span>&gt;
             </div>
-            <div style="display: flex; align-items: center; gap: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
                 <ul class="nav-links">
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#learning">Aprendizado</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#about" data-translate="navAbout">Sobre</a></li>
+                    <li><a href="#projects" data-translate="navProjects">Projetos</a></li>
+                    <li><a href="#learning" data-translate="navLearning">Aprendizado</a></li>
+                    <li><a href="#contact" data-translate="navContact">Contato</a></li>
                 </ul>
+                <!-- Language Toggle Button -->
+                <button id="languageToggle" class="lang-btn" aria-label="Change language">
+                    🇧🇷 PT
+                </button>
                 <!-- Dark Mode Toggle Button -->
                 <button id="darkModeToggle" class="dark-mode-btn" aria-label="Alternar modo escuro">
                     🌙
@@ -34,18 +38,18 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <div class="subtitle">👋 Olá, eu sou</div>
+                    <div class="subtitle" data-translate="heroGreeting">👋 Olá, eu sou</div>
                     <h1>José Borges</h1>
-                    <h2><span>DevOps Júnior</span></h2>
+                    <h2><span data-translate="heroTitle">DevOps Júnior</span></h2>
                     <div class="highlight-box">
-                        <p>🎓 <strong>Formação:</strong> Segurança da Informação</p>
-                        <p>💼 <strong>Buscando:</strong> Primeira oportunidade em DevOps</p>
-                        <p>📚 <strong>Estudando:</strong> AWS, Docker e Terraform</p>
-                        <p>🏆 <strong>Diferencial:</strong> Segurança aplicada a Devops</p>
+                        <p>🎓 <strong data-translate="educationLabel">Formação:</strong> <span data-translate="educationValue">Segurança da Informação</span></p>
+                        <p>💼 <strong data-translate="lookingLabel">Buscando:</strong> <span data-translate="lookingValue">Primeira oportunidade em DevOps</span></p>
+                        <p>📚 <strong data-translate="studyingLabel">Estudando:</strong> <span data-translate="studyingValue">AWS, Docker e Terraform</span></p>
+                        <p>🏆 <strong data-translate="differentialLabel">Diferencial:</strong> <span data-translate="differentialValue">Segurança aplicada a Devops</span></p>
                     </div>
                     <div>
-                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                        <a href="#contact" class="btn btn-outline">Contato</a>
+                        <a href="#projects" class="btn btn-primary" data-translate="viewProjectsBtn">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-outline" data-translate="contactBtn">Contato</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -58,27 +62,27 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Minha Jornada</h2>
+            <h2 class="section-title" data-translate="aboutTitle">Minha Jornada</h2>
             <div class="about-content">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">2024 - Presente</div>
-                        <div class="timeline-title">Estudos em DevOps</div>
-                        <p>Focado em AWS, Docker e CI/CD. Realizando laboratórios práticos e projetos pessoais.</p>
+                        <div class="timeline-title" data-translate="timeline1Title">Estudos em DevOps</div>
+                        <p data-translate="timeline1Desc">Focado em AWS, Docker e CI/CD. Realizando laboratórios práticos e projetos pessoais.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">2020 - 2023</div>
-                        <div class="timeline-title">Formação em Segurança da Informação</div>
-                        <p>Fundamentos de segurança da informação e Cyber Sec, segurança de servidores e conceitos desenvolvimento seguro.</p>
+                        <div class="timeline-title" data-translate="timeline2Title">Formação em Segurança da Informação</div>
+                        <p data-translate="timeline2Desc">Fundamentos de segurança da informação e Cyber Sec, segurança de servidores e conceitos desenvolvimento seguro.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">2019 - 2020</div>
-                        <div class="timeline-title">Curso Técnico em Desenvolvimento de Sistemas</div>
-                        <p>Fundamentos de programação, banco de dados e redes.</p>
+                        <div class="timeline-title" data-translate="timeline3Title">Curso Técnico em Desenvolvimento de Sistemas</div>
+                        <p data-translate="timeline3Desc">Fundamentos de programação, banco de dados e redes.</p>
                     </div>
                 </div>
                 <div>
-                    <h3 style="margin-bottom: 1rem; color: var(--secondary);">Habilidades Técnicas</h3>
+                    <h3 style="margin-bottom: 1rem; color: var(--secondary);" data-translate="techSkillsTitle">Habilidades Técnicas</h3>
                     <div class="skills-list">
                         <span class="skill-badge">🐧 Linux</span>
                         <span class="skill-badge">🐳 Docker</span>
@@ -86,19 +90,19 @@
                         <span class="skill-badge">📦 Git/GitHub</span>
                         <span class="skill-badge">🐍 Python</span>
                         <span class="skill-badge">📜 Bash Script</span>
-                        <span class="skill-badge">🔧 Terraform (estudando)</span>
+                        <span class="skill-badge">🔧 Terraform (studying)</span>
                         <span class="skill-badge">🔄 CI/CD (GitHub Actions)</span>
                         <span class="skill-badge">📊 MySQL Básico</span>
                         <span class="skill-badge">🌐 Redes TCP/IP</span>
                     </div>
 
-                    <h3 style="margin: 2rem 0 1rem; color: var(--secondary);">Soft Skills</h3>
+                    <h3 style="margin: 2rem 0 1rem; color: var(--secondary);" data-translate="softSkillsTitle">Soft Skills</h3>
                     <div class="skills-list">
-                        <span class="skill-badge">🤝 Trabalho em equipe</span>
-                        <span class="skill-badge">📚 Aprendizado rápido</span>
-                        <span class="skill-badge">🔍 Resolução de problemas</span>
-                        <span class="skill-badge">📢 Comunicação</span>
-                        <span class="skill-badge">💡 Proatividade</span>
+                        <span class="skill-badge" data-translate="skill1">🤝 Trabalho em equipe</span>
+                        <span class="skill-badge" data-translate="skill2">📚 Aprendizado rápido</span>
+                        <span class="skill-badge" data-translate="skill3">🔍 Resolução de problemas</span>
+                        <span class="skill-badge" data-translate="skill4">📢 Comunicação</span>
+                        <span class="skill-badge" data-translate="skill5">💡 Proatividade</span>
                     </div>
                 </div>
             </div>
@@ -108,46 +112,46 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Projetos Práticos</h2>
+            <h2 class="section-title" data-translate="projectsTitle">Projetos Práticos</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">☁️</div>
-                        <h3>Infraestrutura AWS para App Web</h3>
+                        <h3 data-translate="project1Title">Infraestrutura AWS para App Web</h3>
                     </div>
                     <div class="project-body">
-                        <p>Configurei ambiente EC2 e RDS para aplicação web.</p>
+                        <p data-translate="project1Desc">Configurei ambiente EC2 e RDS para aplicação web.</p>
                         <div class="project-tags">
                             <span class="tag">AWS EC2</span>
                             <span class="tag">RDS</span>
                         </div>
-                        <a href="#" class="project-link">Ver no GitHub →</a>
+                        <a href="#" class="project-link" data-translate="viewOnGithub">Ver no GitHub →</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">🐳</div>
-                        <h3>Pipeline docker com Github Actions</h3>
+                        <h3 data-translate="project2Title">Pipeline docker com Github Actions</h3>
                     </div>
                     <div class="project-body">
-                        <p>Pipeline de CI com Github Actions. Visando testes e build em multiplas versões Ubuntu com utilização do docker</p>
+                        <p data-translate="project2Desc">Pipeline de CI com Github Actions. Visando testes e build em multiplas versões Ubuntu com utilização do docker</p>
                         <div class="project-tags">
                             <span class="tag">Docker</span>
                             <span class="tag">Docker Compose</span>
                             <span class="tag">Nginx</span>
                         </div>
-                        <a href="https://github.com/JBorges-QA/pipeline-docker" class="project-link">Ver no GitHub →</a>
+                        <a href="https://github.com/JBorges-QA/pipeline-docker" class="project-link" data-translate="viewOnGithub">Ver no GitHub →</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">🔄</div>
-                        <h3>Pipeline CI/CD Simples</h3>
+                        <h3 data-translate="project3Title">Pipeline CI/CD Simples</h3>
                     </div>
                     <div class="project-body">
-                        <p>Pipeline com GitHub Actions para build, teste e deploy automático em uma instância AWS EC2 e em comunicação com um RDS.</p>
+                        <p data-translate="project3Desc">Pipeline com GitHub Actions para build, teste e deploy automático em uma instância AWS EC2 e em comunicação com um RDS.</p>
                         <div class="project-tags">
                             <span class="tag">GitHub Actions</span>
                             <span class="tag">AWS EC2</span>
@@ -156,7 +160,7 @@
                             <span class="tag">Linux</span>
                             <span class="tag">Golang</span>
                         </div>
-                        <a href="https://github.com/JBorges-QA/CI-com-GitHubActions" class="project-link">Ver no GitHub →</a>
+                        <a href="https://github.com/JBorges-QA/CI-com-GitHubActions" class="project-link" data-translate="viewOnGithub">Ver no GitHub →</a>
                     </div>
                 </div>
             </div>
@@ -166,37 +170,37 @@
     <!-- Learning Path -->
     <section id="learning" class="learning">
         <div class="container">
-            <h2 class="section-title">Roadmap de Estudos</h2>
+            <h2 class="section-title" data-translate="roadmapTitle">Roadmap de Estudos</h2>
             <div class="roadmap">
                 <div class="roadmap-card">
                     <div class="roadmap-icon">✅</div>
-                    <h4>Linux & Shell</h4>
-                    <span class="roadmap-status status-done">Concluído</span>
+                    <h4 data-translate="roadmap1">Linux & Shell</h4>
+                    <span class="roadmap-status status-done" data-translate="statusDone">Concluído</span>
                 </div>
                 <div class="roadmap-card">
                     <div class="roadmap-icon">✅</div>
-                    <h4>Git & GitHub</h4>
-                    <span class="roadmap-status status-done">Concluído</span>
+                    <h4 data-translate="roadmap2">Git & GitHub</h4>
+                    <span class="roadmap-status status-done" data-translate="statusDone">Concluído</span>
                 </div>
                 <div class="roadmap-card">
                     <div class="roadmap-icon">🔄</div>
-                    <h4>Docker</h4>
-                    <span class="roadmap-status status-progress">Em andamento</span>
+                    <h4 data-translate="roadmap3">Docker</h4>
+                    <span class="roadmap-status status-progress" data-translate="statusProgress">Em andamento</span>
                 </div>
                 <div class="roadmap-card">
                     <div class="roadmap-icon">🔄</div>
-                    <h4>AWS Cloud</h4>
-                    <span class="roadmap-status status-progress">Em andamento</span>
+                    <h4 data-translate="roadmap4">AWS Cloud</h4>
+                    <span class="roadmap-status status-progress" data-translate="statusProgress">Em andamento</span>
                 </div>
                 <div class="roadmap-card">
                     <div class="roadmap-icon">📅</div>
-                    <h4>Kubernetes</h4>
-                    <span class="roadmap-status status-next">Próximo</span>
+                    <h4 data-translate="roadmap5">Kubernetes</h4>
+                    <span class="roadmap-status status-next" data-translate="statusNext">Próximo</span>
                 </div>
                 <div class="roadmap-card">
                     <div class="roadmap-icon">📅</div>
-                    <h4>Terraform</h4>
-                    <span class="roadmap-status status-next">Próximo</span>
+                    <h4 data-translate="roadmap6">Terraform</h4>
+                    <span class="roadmap-status status-next" data-translate="statusNext">Próximo</span>
                 </div>
             </div>
         </div>
@@ -205,16 +209,16 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Vamos Conversar?</h2>
-            <p>Estou em busca da primeira oportunidade como DevOps Júnior</p>
+            <h2 data-translate="contactTitle">Vamos Conversar?</h2>
+            <p data-translate="contactSubtitle">Estou em busca da primeira oportunidade como DevOps Júnior</p>
             <div class="social-links">
                 <a href="https://github.com/JBorges-QA" class="social-link">
                     <span class="social-icon">📂</span>
-                    GitHub
+                    <span data-translate="github">GitHub</span>
                 </a>
                 <a href="https://www.linkedin.com/in/josé-carlos-7b89641a2/" class="social-link">
                     <span class="social-icon">💼</span>
-                    LinkedIn
+                    <span data-translate="linkedin">LinkedIn</span>
                 </a>
                 <a href="https://wa.me/15988273977" class="social-link" target="_blank">
                     <span class="social-icon">
@@ -223,7 +227,7 @@
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" fill="white"/>
                         </svg>
                     </span>
-                    WhatsApp
+                    <span data-translate="whatsapp">WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -232,7 +236,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2026 José Borges - DevOps Júnior | Construindo o futuro com automação 🚀</p>
+            <p data-translate="footer">© 2026 José Borges - DevOps Júnior | Construindo o futuro com automação 🚀</p>
         </div>
     </footer>
 
